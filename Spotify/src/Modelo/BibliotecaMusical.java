@@ -2,8 +2,8 @@ package Modelo;
 
 public class BibliotecaMusical {
     private Cancion[] catalogo;
-    private int contadorCatalogo; 
-    private int maxCatalogo; 
+    private int contadorCatalogo;
+    private int maxCatalogo;
 
     public BibliotecaMusical(int maxCatalogo) {
         this.maxCatalogo = maxCatalogo;
@@ -31,10 +31,24 @@ public class BibliotecaMusical {
         return null;
     }
 
-    public void listarCatalogo() {
-        System.out.println("Catálogo de la Biblioteca Municipal:");
-        for (int i = 0; i < contadorCatalogo; i++) {
-            System.out.println((i + 1) + ". " + catalogo[i].getInfo());
-        }
+    public void listarCatalogoDetallado() {
+    System.out.println("\n--- LISTA DE CANCIONES EN BIBLIOTECA ---");
+    for (int i = 0; i < contadorCatalogo; i++) {
+        System.out.println("[" + i + "] "
+                + catalogo[i].getTitulo() + " - "
+                + catalogo[i].getArtista() + " ("
+                + catalogo[i].getDuracionSegundos() + "s)");
     }
+    System.out.println("------------------------------------------");
+    System.out.println("Total: " + contadorCatalogo + " canciones");
+}
+
+public Cancion getCancionPorIndice(int indice) {
+    if (indice >= 0 && indice < contadorCatalogo) {
+        return catalogo[indice];
+    }
+    return null;
+}
+
+
 }

@@ -21,6 +21,10 @@ public class CuentaSpotify {
         this.capacidadPlaylists = capacidadPlaylists;
     }
 
+    public CuentaSpotify(String string, String string2, String string3) {
+        // TODO Auto-generated constructor stub
+    }
+
     public BibliotecaMusical getBiblioteca() {
         return biblioteca;
     }
@@ -70,6 +74,22 @@ public class CuentaSpotify {
     public void cerrarSesion() {
         this.sesionIniciada = false;
         System.out.println("Sesión cerrada.");
+    }
+
+    public void listarPlaylists() {
+        System.out.println("\n--- PLAYLISTS DISPONIBLES ---");
+        for (int i = 0; i < contadorPlaylists; i++) {
+            System.out.println("[" + i + "] " + playlists[i].getNombre());
+        }
+    }
+
+    public Playlist getPlaylistPorNombre(String nombre) {
+        for (int i = 0; i < contadorPlaylists; i++) {
+            if (playlists[i].getNombre().equalsIgnoreCase(nombre)) {
+                return playlists[i];
+            }
+        }
+        return null;
     }
 
 }
